@@ -1,0 +1,27 @@
+{
+  "name": "mandatory_1_nodejs",
+  "version": "1.0.0",
+  "description": "A mandatory assignment",
+  "keywords": [
+    "Node",
+    "EK"
+  ],
+  "homepage": "https://github.com/Nilket/Mandatory_1_NodeJS#readme",
+  "bugs": {
+    "url": "https://github.com/Nilket/Mandatory_1_NodeJS/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nilket/Mandatory_1_NodeJS.git"
+  },
+  "license": "MIT",
+  "author": "Nilket",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
