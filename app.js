@@ -1,9 +1,25 @@
-const app = require('express')();
+import express from 'express';
+import path from 'path';
+
+const app = express();
+app.use(express.static('public'));
+app.use(express.json());
+
+// <=================================== PAGES =================================>
 
 app.get('/', (req, res) =>{
-    res.sendFile(__dirname + '/public/pages/frontpage/frontpage.html');
+    res.sendFile(path.resolve('public/pages/frontpage/frontpage.html'));
 });
 
 
 
-app.listen(8080);
+// <=================================== API ===================================>
+
+
+
+
+const PORT = process.env.PORT || 8080;
+
+const server = app.listen(PORT, () => {
+    console.log("Server started on port", server.address().port);
+});
