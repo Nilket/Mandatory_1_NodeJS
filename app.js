@@ -1,5 +1,4 @@
 import express from 'express';
-import path from 'path';
 
 const app = express();
 app.use(express.static('public'));
@@ -7,16 +6,11 @@ app.use(express.json());
 
 // <=================================== PAGES =================================>
 
-app.get('/', (req, res) =>{
-    res.sendFile(path.resolve('public/pages/frontpage/frontpage.html'));
-});
+import pagesRouter from './routers/pagesRouter.js';
 
-
+app.use(pagesRouter);
 
 // <=================================== API ===================================>
-
-
-
 
 const PORT = process.env.PORT || 8080;
 
