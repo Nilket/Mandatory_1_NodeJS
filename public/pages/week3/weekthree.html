@@ -2,13 +2,69 @@
     <h1>Third week</h1>
 
     <h2>Nodemon</h2>
+    <p>Nodemon is a tool for Node.js that automatically reruns your application each time you make a change in the code</p>
+    <p>So developers don't have to spam this:</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">node app.js</code></pre>
+
+    <p>But instead can type:</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">nodemon app.js</code></pre>
+    <p>Now your application will rerun itself each time you update your code</p>
+
+    <p>To install nodemon you type this in your terminal</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">npm install -g nodemon</code></pre>
+    <p>And you will be able to use nodemon.</p>
 
     <h2>Loop methods</h2>
+    <p>In Javascript you can loop through items in a lot of different ways</p>
+    <p>But it's quite different from the ways we used to loop through things in Java, those manual counting for loops should only be for fingercounting problems.</p>
 
-    <h2>Terminology with URL</h2>
-    
-    <h2>POST request with Express</h2>
+    <p>But luckily for us Javascript has a lot of built in loop methods like these below:</p>
+    <br>
+
+<pre>.forEach()</pre>
+    <pre><code class="language-bash hljs" data-highlighted="yes">const numbers = [1,2,3];
+numbers.forEach((n) => console.log(n));</code></pre>
+    <p>Which loops over all elements and runs a function per element, in this case 1,2,3.</p>
+    <br>
+
+<pre>.map()</pre>
+<pre><code class="language-bash hljs" data-highlighted="yes">const numbers = [1,2,3];
+const multiply = numbers.map((n) => n * 2);</code></pre>
+    <p>Which transforms each element and returns them to a new array, in this case 2,4,6</p>
+    <br>
+
+<pre>.filter()</pre>
+<pre><code class="language-bash hljs" data-highlighted="yes">const numbers = [1,2,3];
+const overOne = numbers.filter((n) => n < 1);</code></pre>
+    <p>Which returns a new array of all elements that pass for this case 2,3</p>
+    <br>
+
+<pre>.reduce()</pre>
+<pre><code class="language-bash hljs" data-highlighted="yes">const numbers = [1,2,3];
+const sum = numbers.reduce((acc, n) => acc + n, 0);</code></pre>
+    <p>Which accumulates all elements into a single value for this case 6.</p>
+    <br>
+
+<pre>.find()</pre>
+<pre><code class="language-bash hljs" data-highlighted="yes">const numbers = [1,2,3];
+const found = numbers.find((n) => n > 1);</code></pre>
+    <p>Returns the first element that passes the test in this case 2.</p>
+    <br>
+    <p>But you have to be aware because using these loop methods 
+        incorrectly can result in side-effects. Side-effects are 
+        common bugs that can lead to unexpected behaviour in 
+        the code, but they are also some of the hardest to debug.</p>
 
     <h2>Dangers of XSS</h2>
-
+    <p>If your Javascript manipulates the DOM content 
+        using innerHTML based on your users input, there is 
+        a big risk of getting exploited by Cross-Site scripting</p>
+        <br>
+    <p>But the question is how do you avoid Cross-Site scripting?</p>
+    <p>To prevent it we sanitize all user inputs before 
+        injecting them into our DOM. Even better we can 
+        just use html elements textContent instead of innerHTML</p>
+    <p>For example:</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">element.textContent = userInput;</code></pre>
+    
 </div>

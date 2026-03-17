@@ -1,14 +1,44 @@
 <div class="hero">
     <h1>Sixth week</h1>
 
-    <h2>Running scripts with NPM</h2>
-
-    <h2>Defining environment variables</h2>
-
     <h2>Semantic HTML</h2>
+    <p>Semantic HTML is using elements that describe what the content is, rather than just how it looks</p>
+    <p>And it has it's pros</p>
 
-    <h2>How to structure the frontend</h2>
+    <p>Accessibility - Vision impaired users can navigate the site</p>
+    <p>SEO - Google will understand the site much better if you use semantic HTML, and can even rank you higher because of this</p>
+    <p>Easier to maintain code - If all tags inside your HTML are divs it's gonne be much harder to navigate in and to understand</p>
 
     <h2>Pros and cons of CDN vs serving content locally</h2>
+    <p>Serving scripts or styling through CDN (Content Delivery Network) vs locally each has it's pros and cons</p>
+
+    <h3>Pros with CDN</h3>
+    <p>CDN often have servers all over the world, this means that a user in Korea could access the files from a server in Asia insead of from a home server in Denmark, so it has faster load times for users all over the world</p>
+    <p>CDN puts less load on the server as we basically outsource all of the load to the CDN so the server has to do less work</p>
+    <p>CDN caches, and if the user has browsed other sites that uses some of the same scripts from the same CDN it's cached and won't have to be loaded again</p>
+
+    <h3>Cons with CDN</h3>
+    <p>Doesn't work offline</p>
+    <p>Dependent on the CDN</p>
+
+    <h3>Pros with serving content locally</h3>
+    <p>Works offline, if you're on the same network</p>
+    <p>Independent from the CDN so changes won't break your site.</p>
+
+    <h3>Cons with serving content locally</h3>
+    <p>Doesn't cache as CDN</p>
+    <p>Longer load times</p>
+
+    <h2>SSR vs CSR</h2>
+    <p>Where you render your HTML on a server or if it happens directly on a client's browser each has it's ups and downs</p>
+    <h3>Client-side rendering</h3>
+    <p>Scripts that are pubicly served are running as soon as the client receives the bare HTML</p>
+    <p>These scripts handle the HTTP GET request from the backend to gather the information and then render the content</p>
+    
+
+    <h3>Server side rendering</h3>
+    <p>When a client calls an endpoint the backend does all of the rendering and only returns the HTML once all of the content is built.</p>
+    <p>It requires less of the client's computer as content is sent directly and doesn't need to be rendered</p>
+
 
 </div>
