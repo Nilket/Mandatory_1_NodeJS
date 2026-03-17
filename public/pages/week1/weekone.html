@@ -1,25 +1,144 @@
 <div class="hero">
     <h1>First week</h1>
 
-
     <h2>Linters</h2>
-    
+    <p>A Linter is a tool within static code analysis that examines source code to flag mistakes, anomalous code, probable bugs and stylistic errors.</p>
+    <p>But it can be customized to fit your teams code standards also, everything from spelling mistakes to formatting, really depends on the teams use case.</p>
+    <p>They help analyze the codebase before you execute it, which can help in the early stages of development and beyond.</p>
+    <p>I personally use Prettier but there are tons of linters like ESlint, JShint, StandardJS and etc.</p>
 
+    <br>
 
     <h2>Git in the terminal</h2>
+    <p>Git is a free and open source distributed version control system</p>
+    <p>We've mainly used Git to push code to our repositories on Github but there are other sites where you can store code like Azure Dev</p>
+    <p>The usual terminal commands i use are:</p>
+    <pre><code class="language-bash hljs" data-higlighted='yes'>git add -A</code></pre>
+    <p>Which stages all changes</p>
+    <br>
+    <p>After that i commit my code with:</p>
+    <pre><code class="language-bash hljs" data-higlighted="yes">git commit -m "message"</code></pre>
+    <p>Where i commit my code with a message appropriate for the commit i have made.</p>
+    <br>
+    <p>And at last i push my code: </p>
+    <pre><code class="language-bash hljs" data-higlighted="yes">git push origin main</code></pre>
+    <p>I usually never push directly to main, i often use branches with:</p>
+    <pre><code class="language-bash hljs" data-higlighted="yes">git checkout -b "branchname"</code></pre>
+    <p>And handle merging by creating pull requests on Github</p>
 
+    <br>
 
     <h2>Data types in JS</h2>
+    <p>Here i will go over the different data types we have gone trough for now</p>
+    <h3>Number</h3>
+    <p>The number datatype can contain whole numbers, decimal numbers and also NaN </p>
+    <p>For example:</p>
+    <pre><code class="language-bash hljs" data-higlighted="yes">const count = 10;
+const price = 14.50;
+const notANumber = NaN;</code></pre>
 
+    <h3>String</h3>
+    <p>The String datatype is a sequence of characters</p>
+    <p>Examples of strings:</p>
+    <pre><code class="language-bash hljs" data-higlighted="yes">const fruit = "apple";
+const name = 'Jonas';        
+const lastName = ´Nilket-Johannesen´;</code></pre>
+
+    <h3>Boolean</h3>
+    <p>The boolean datatype can be either true or false</p>
+    <pre><code class="language-bash hljs" data-higlighted="yes">const isOnline = true;
+const isLoggedOff = false;</code></pre>
+
+    <h3>Undefined</h3>
+    <p>The Undefined datatype is a varible with no assigned value:</p>
+    <pre><code class="language-bash hljs" data-higlighted="yes">let x;</code></pre>
+
+    <h3>Null</h3>
+    <p>The Null datatype is a value representing object absence</p>
+    <pre><code class="language-bash hljs" data-higlighted="yes">let x = null;</code></pre>
+
+    <h3>Object</h3>
+    <p>The Object datatype is a collection of key-value pairs of data:</p>
+    <pre><code class="language-bash hljs" data-higlighted="yes">const peron = {firstname: "Jonas", lastName: "Nilket-Johannesen"}</code></pre>
+    <p>There is also the Array Object which is a array of values accessed by a numerical index:</p>
+    <pre><code class="language-bash hljs" data-higlighted="yes">const cars = ["Volvo", "Toyota", "Koenigsegg"]</code></pre>
+
+    <h3>Function</h3>
+    <p>A function in Javascript is also a datatype. A function is a reusable block of code, that can be called.</p>
+    <p>Functions can be passed as an argument in other functions also called a callback function.</p>
+    <p>Example of a simple function:</p>
+    <pre><code class="language-bash hljs" data-higlighted="yes">function cat() {
+    return "meow";    
+}</code></pre>
 
     <h2>What is Node.js?</h2>
-
+    <p>Javascript was originally built to run inside a browser.</p>
+    <p>But Node.js takes the same Javascript and lets you run Javascript outside the browser, directly on you computer or a server</p>
+    <p>Which is a huge deal because it means you can use Javascript for both the frontend and backend</p>
+    <p>This application is a perfect example of a Full Stack Node.js application :)</p>
+    <br>
+    <p>Node also has a REPL - (Read-Evaluate-Print-Loop)</p>
+    <p>Which allows you to write Javascript directly in your terminal by typing:</p>
+     <pre><code class="language-bash hljs" data-higlighted="yes">node</code></pre>
+     <p>And now you can execute all the Javascript code you want to.</p>
+   
 
 
     <h2>Type coercion</h2>
+    <p>Javascript has built-in type coercion that happens automatically</p>
+    <p>Some say it's a feature others hate on it.</p>
+    <p>And it's not always predictable from a logical sense</p>
+    <br>
+    <p>Examples:</p>
+    <pre><code class="language-bash hljs" data-higlighted="yes">'10' + 7; = "107"
+'10' - 7; = 3
+false + 1; = 1
+null + 10; = 10
+undefined - 27; = NaN</code></pre>
 
+<h3>Type coercion</h3>
+<p>In type coercion there is also falsy values like:</p>
+<p>False, null, undefined, 0, NaN and ""</p>
 
+<p>When you try to use one of these values in a boolean expression, Javascript will automatically coerce it</p>
+<p>To a boolean value, for example:</p>
+<pre><code class="language-bash hljs" data-higlighted="yes">if(0) {
+    //This code will not execute
+} else {
+    //this code will execute
+}</code></pre>
 
-    <h2>REST API</h2>
+<h3>== vs ===</h3>
+<p>When you compare data in Javascript it's a big deal whether you choose to use == or ===</p>
+<p>Using == will trigger type coercion, which can allow for some unpredictable behaviour, and when you use === it will not trigger type coercion which means it won't convert the datatype.</p>
+<p>Examples:</p>
+<pre><code class="language-bash hljs" data-higlighted="yes">0 == false; = true <- type coercion
+"" == false; = true <- type coercion
+0 === false; = false <- No coercion
+null === undefined: = false <- No coercion</code></pre>
+
+<h2>REST API</h2>
+<p> Rest is an architectural style, that we follow while buuiding web API's</p>
+<h3>HTTP methods</h3>
+<p>There are five main HTTP methods that we have gone over through this semester and they are:</p>
+<p>1. GET - Represents methods that gather data</p>
+<p>2. POST - Represents methods that creates new data</p>
+<p>3. PUT - Represents methods updates a whole row/object</p>
+<p>4. PATCH - Represents methods that update parts of a row/object</p>
+<p>5. DELETE - Represents methods that deletes data</p>
+
+<h3>Standards and conventions</h3>
+<p>Many people tend to add the /api prefix to their endpoints, to seperate rest api endpoints and frontend site serving endpoints</p>
+<p>At the same time it's also mandatory to have whatever object your calling your endpoints in plural inside your url, an example of both is:</p>
+<p>/api/beers</p>
+
+<h3>The order of the endpoints</h3>
+<p>Is also an important subject while working with rest, it should follow this order everytime:</p>
+<pre>GET /users -> get all users
+GET /users/{id} -> get user by id
+POST /users -> create a new user
+PUT/ /users/{id} -> update user by id
+PATCH /users/{id} -> update specific fields for a user by id
+DELETE /users/{id} -> delete a user by id</pre>
 
 </div>

@@ -1,19 +1,108 @@
 <div class="hero">
     <h1>Second week</h1>
 
-    <h2>Scoping in Javascript</h2>
-
     <h2>Callback functions</h2>
+    <p>In Javascript a callback function is simply a function that is passed as an argument to another function, which can then be called inside that function</p>
+    <p>Example:</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">function greetAnimal(animalName, makeSound){
+    makeSound(animalName); //Callback with name passed into it
+}
+
+function meow(name){ 
+    console.log(name + ' Says: Meow!');
+} // The function that gets stored in makeSound
+
+greetAnimal('Kitty', meow)</code></pre>
+
+<p>We have used callback functions a lot at the third semester but never knew the terminology</p>
+<p>An example of where we used it:</p>
+<pre><code class="language-bash hljs" data-highlighted="yes">button.addEventListener('click', function () {
+    console.log('boom');
+});</code></pre>
+
 
     <h2>NPM</h2>
+    <p>NPM is the built in package manager that Node.js comes with, it's what allows us to install dependencies for Node.js projects</p>
+    <p>To get started with NPM you can either create a package.json or generate one with:</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">npm init</code></pre>
+    <p>After you run npm init, it will ask you a lot of questions that you have to fill out, that then gets filled into your package.json</p>
 
-    <h2>What is package.json?</h2>
-
-    <h2>What is node_modules?</h2>
+    <h3>What is package.json?</h3>
+    <p>package.json is a file that describes your Node.js project in details</p>
+    <p>It contains meta-data for example the projects name, description, version. Most important it also contains a list of all the dependencies which are being used for the project, and even defined scripts.</p>
+    <p>An example of a package.json:</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">
+{
+  "name": "mandatory_1_nodejs",
+  "version": "1.0.0",
+  "description": "A mandatory assignment",
+  "keywords": [
+    "Node",
+    "EK"
+  ],
+  "homepage": "https://github.com/Nilket/Mandatory_1_NodeJS#readme",
+  "bugs": {
+    "url": "https://github.com/Nilket/Mandatory_1_NodeJS/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nilket/Mandatory_1_NodeJS.git"
+  },
+  "license": "MIT",
+  "author": "Nilket",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
+    </code></pre>
+    <br>
+    <p>To install these dependencies you simply use:</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">npm install</code></pre>
+    <p>And it will install all the dependencies and put them into the node_modules folder, which you shouldn't push to git which i unfortunately did... woops</p>
+    <br>
+    <p>You can also install a single dependency at a time with:</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">npm install (dependency name)</code></pre>
+    <p>Which automatically adds the dependency to package.json and installs it into node_modules</p>
+    <br>
+    <p>To run a script you can type:</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">npm run test</code></pre>
+    <p>Which will run the script in the package.json</p>
 
     <h2>Express</h2>
+    <p>Express.js is a light weight web framework for Node.js, you install it via npm. Express makes it easier to create and manage HTTP servers if we compare to creating your own</p>
+    <p>Express handles routing and request/response logic, which gets you started in no time.</p>
+    <br>
+    <p>In order to install express you use:</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">npm install express</code></pre>
+    <p>Which adds it to your package.json and installs it into your node_modules folder</p>
 
-    <h2>Client-server model</h2>
+    <p>To use express you have to import it like this:</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">import express from 'express';</code></pre>
+    <p>This imports the whole express library, but you have to create an instance in order to use it:</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">const app = express();</code></pre>
 
-    <h2>How to send GET requests in express</h2>
+    <p>You also have to specify which port express needs to listen on in order for the webserver to start</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">const server = app.listen(PORT, () => {
+    console.log("Server started on port", server.address().port);
+});
+</code></pre>
+
+    <h3>Creating endpoints with express</h3>
+    <p>To create an endpoint with express we use the instance of express like this:</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">app.get('/', (req, res) => {
+        res.sendFile(path.resolve('public/pages/frontpage/frontpage.html'));
+});
+    </code></pre>
+    <p>The endpoint can be made with whatever HTTP verb you choose.</p>
+
+    <h3>Serving static files with express</h3>
+    <p>In order to serve static files in Express.js you need to define your static/public folder like this:</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">app.use(express.static('public));</code></pre>
+    <p>Which will make everything in this folder accessible to people using the server.</p>
+
 </div>

@@ -2,10 +2,45 @@
     <h1>Fourth week</h1>
 
     <h2>Creating a full CRUDable REST API</h2>
+    <p>Unfortunately i missed this lesson, and have nothing to show for it.</p>
 
     <h2>Writing a fetch request</h2>
+    <p>Unfortunately i haven't tried this yet, but i know i have to use promises as we did on third semester</p>
+    <p>So it would probably look something like this</p>
+    <pre><code class="language-bash hljs" data-highlighted="yes">
+app.get('/posts', async(req,res) =>{
+    try{
+        const response = await fetch('fetch link - maybe api');
+
+        if(!response.ok){
+            throw //some type of error
+        }
+
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        console.log(error);
+    }
+});
+    </code></pre>
 
     <h2>Getting the date in Javascript</h2>
+    <p>In order to get the date in Javascript you can do</p>
+<pre><code class="language-bash hljs" data-highlighted="yes">
+const date = new Date();
+console.log(date);
+</code></pre>
+<p>Which gives you the full date object and from here you can pull out specific parts like:</p>
+<pre><code class="language-bash hljs" data-highlighted="yes">
+date.getFullYear();
+date.getMonth();
+date.getDate();
+date.getDay();
+
+//Or if you want a clean readable string
+date.toLocaleDateString();
+date.toLocaleString();
+</code></pre>
 
 
 </div>

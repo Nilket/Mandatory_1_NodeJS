@@ -1,12 +1,59 @@
 <div class="hero">
     <h1>Fifth week</h1>
 
-    <h2>Serving static files in Express</h2>
-
     <h2>Importing and exporting</h2>
+    <p>When we import for example you can do it like this:</p>
+<pre><code class="language-bash hljs" data-highlighted="yes">import express from 'express';</code></pre>
 
-    <h2>Redirection</h2>
+    <p>Where you import the whole express library, but you can also do something called destructuring where you instead only import what you use like this:</p>
+
+<pre><code class="language-bash hljs" data-highlighted="yes">import { readPage, constructPage } from "./templateEngine.js";</code></pre>
+
+    <p>In order to export functions per example we use the export like this</p>
+<pre><code class="language-bash hljs" data-highlighted="yes">
+export function myFunction(){
+}
+</code></pre>
+
+    <h2>ESModule vs CommonJS</h2>
+    <p>The above examples are how you handle importing and exporting in whats called ESModule, which is the new standard for Node.js</p>
+    <p>CommonJS is a Node.js specific thing, which means you will end up having a different syntax for frontend and backend</p>
+    <p>In order to switch to ESModule you have to look into your package.json and change this:</p>
+<pre><code class="language-bash hljs" data-highlighted="yes">
+    {
+        "type": "module"
+    }
+</code></pre>
+    <p>From CommonJS</p>
+
+    <p>In CommonJS this is how importing and exporting would look like:</p>
+    <p>Importing</p>
+<pre><code class="language-bash hljs" data-highlighted="yes">
+const express = require('express');
+</code></pre>
+
+<p>Exporting</p>
+<pre><code class="language-bash hljs" data-highlighted="yes">
+module.exports = { myFunction };
+</code></pre>
+
 
     <h2>Difference between client-side redirection and server-side</h2>
+    <p>Server-side redirect - The server sends the browser to a new URL before any page loads. The browser never sees the original page.</p>
+    <p>Client side redirect - The page loads first, then Javascript runs and sends the user somewhere else.</p>
+
+    <p>Client-side in Javascript</p>
+<pre><code class="language-bash hljs" data-highlighted="yes">window.location.href = 'https://example.com';</code></pre>
+    <p>This runs in the browser after the page has already loaded</p>
+    <br>
+
+    <p>Server side through express</p>
+<pre><code class="language-bash hljs" data-highlighted="yes">
+app.get('/old-page', (req, res) => {
+    res.redirect('/new-page');
+});
+</code></pre>
+<p>This happens before anything reaches the browser</p>
+
 
 </div>
